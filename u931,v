@@ -1,0 +1,106 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols  V_2-TE-KE00-183-1_0_0_0:1.1.1.1 Keysight:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2016.01.28.05.34.45;  author user2;  state Exp;
+branches 1.1.1.1;
+next     ;
+
+1.1.1.1
+date     2016.01.28.05.34.45;  author user2;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@!!!!    6    1    1 1042131652  V4934                                         
+!IPG: rev B.02.78 Thu Jul 02 08:57:16 1998
+
+!  Frac N chip M60081L
+!  M60081L  1821-1821
+!  SRR 12/9/97
+
+default device "u931"
+assign    VCC       to pins   * ,* ,* ,* ,* ,* ,* ,*,* ,* ,* ,* ,* ,* ,* 
+assign    GND       to pins   * ,* ,* ,* ,* ,* ,* ,*  ,*,* ,* ,* ,* ,* ,* 
+assign    GND       to pins   * ,* ,* ,* ,* ,* 
+
+! bidirectional signals
+assign    Diag15_0  to pins   * ,* ,* ,* ,* ,60,61,62,65,66,67,68,69,70,71,72
+assign    Data      to pins   * ,* ,* ,* ,* ,* ,* ,* ,* ,*,*,*,*,*,*,*
+
+! input signals
+assign    Clock     to pins   98
+assign    Reset     to pins   36
+
+assign    Run       to pins   48
+assign    CS_bar    to pins   * 
+assign    R_W       to pins   32
+assign    Strobe    to pins   30
+assign    ACK_bar   to pins   * 
+assign    Addr      to pins   27,* ,* ,* ,* ,* 
+assign    SER_PAR   to pins   * 
+
+assign    Ldfreq    to pins   * 
+assign    Swpready  to pins   * 
+assign    Swprun    to pins   * 
+assign    Swpstep   to pins   * 
+assign    SYNC      to pins   * 
+assign    Pin       to pins   89
+assign    Modstrobe to pins   * 
+assign    Diag_dir  to pins   * 
+
+! output signals
+assign    Swpstat   to pins   * 
+assign    MC        to pins   84,* 
+assign    SC        to pins   * ,* 
+assign    Clock_out to pins   96
+assign    DIVN      to pins   94
+assign    DIVN_bar  to pins   * 
+assign    MODSAT    to pins   * 
+
+assign    NC        to pins   * 
+
+family    CMOS
+
+power     VCC, GND
+
+inputs    Clock, Reset, Run, CS_bar, R_W, Strobe, ACK_bar, Addr, SER_PAR
+inputs    Ldfreq, Swpready, Swprun, Swpstep, SYNC, Pin, Modstrobe, Diag_dir
+
+outputs   Swpstat, MC, SC, Clock_out, DIVN, DIVN_bar, MODSAT
+
+bidirectional Diag15_0, Data
+
+nondigital  NC
+
+disable Diag15_0, Data with Reset to "0"
+
+!IPG: Add defaults or loads to floating inputs and bidirs.
+
+!****************************************************************
+
+!  Setup_only
+@
+
+
+1.1.1.1
+log
+@initial import by leey
+@
+text
+@@
